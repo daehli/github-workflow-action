@@ -25,3 +25,5 @@ jobs:
       - name: Workflow dispatch
         run: |
           echo ${{ github.event.inputs.env }}
+          echo ${GITHUB_REF#refs/heads/}
+          echo format('{0}_GOOGLE_CREDENTIALS', inputs.env || 'empty input' )
