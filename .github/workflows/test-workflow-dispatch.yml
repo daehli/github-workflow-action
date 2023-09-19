@@ -26,5 +26,5 @@ jobs:
         run: |
           echo ${{ github.event.inputs.env }}
           echo ${GITHUB_REF#refs/heads/}
-          echo ${{ env.EXAMPLE }}
-          echo ${{format('{0}_GOOGLE_CREDENTIALS', inputs.env || ${{env.EXAMPLE}} )}}
+          echo ${{ github.repository }}
+          echo ${{format('{0}_GOOGLE_CREDENTIALS', inputs.env || github.repository )}}
