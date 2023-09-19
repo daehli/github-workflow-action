@@ -1,0 +1,30 @@
+name: Test Workflow dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        default: "DEV"
+        description: "The environment to deploy on [DEV, QA, PROD]"
+        required: true
+        type: choice
+        options:
+          - DEV
+          - QA
+          - PROD
+
+  pull_request:
+    paths:
+      - main
+      - develop
+    types:
+      - "closed"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test workflow
+
+    steps:
+      - name: Workflow dispatch
+        run: |
+          echo ${{ github.event.inputs.env }}
