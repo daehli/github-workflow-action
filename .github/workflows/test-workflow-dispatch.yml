@@ -14,9 +14,6 @@ on:
           - PROD
 
   pull_request:
-    paths:
-      - main
-      - develop
     types:
       - "closed"
 jobs:
